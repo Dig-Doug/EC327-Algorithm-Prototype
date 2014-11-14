@@ -14,6 +14,7 @@
 		913272F51A15620700676901 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913272F41A15620700676901 /* Images.xcassets */; };
 		913272F81A15620700676901 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913272F61A15620700676901 /* LaunchScreen.xib */; };
 		913273041A15620800676901 /* WordListerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 913273031A15620800676901 /* WordListerTests.m */; };
+		9132730E1A15622400676901 /* PageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9132730D1A15622400676901 /* PageParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		913272FD1A15620800676901 /* WordListerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordListerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		913273021A15620800676901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913273031A15620800676901 /* WordListerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordListerTests.m; sourceTree = "<group>"; };
+		9132730D1A15622400676901 /* PageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageParser.m; sourceTree = "<group>"; };
+		9132730F1A15622E00676901 /* PageParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageParser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				913272EC1A15620700676901 /* AppDelegate.m */,
 				913272EE1A15620700676901 /* ViewController.h */,
 				913272EF1A15620700676901 /* ViewController.m */,
+				9132730F1A15622E00676901 /* PageParser.h */,
+				9132730D1A15622400676901 /* PageParser.m */,
 				913272F11A15620700676901 /* Main.storyboard */,
 				913272F41A15620700676901 /* Images.xcassets */,
 				913272F61A15620700676901 /* LaunchScreen.xib */,
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				913272F01A15620700676901 /* ViewController.m in Sources */,
+				9132730E1A15622400676901 /* PageParser.m in Sources */,
 				913272ED1A15620700676901 /* AppDelegate.m in Sources */,
 				913272EA1A15620700676901 /* main.m in Sources */,
 			);

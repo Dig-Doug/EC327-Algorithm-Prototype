@@ -10,6 +10,13 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, retain)IBOutlet UITextField *url;
+@property (nonatomic, retain)IBOutlet UITextView *results;
+@property (nonatomic, retain)IBOutlet UILabel *wordCount;
+@property (nonatomic, retain)IBOutlet UIButton *parse;
+
+-(IBAction)closeKeyboard:(id)sender;
+
 
 @end
 
