@@ -33,9 +33,13 @@
 
 -(IBAction)parsePage:(id)sender
 {
+    //make sure we can't press parse more than once
     self.parse.enabled = false;
+    //add a nice message to the screen
     self.results.text = @"Parsing...";
+    //remove the keyboard
     [self.url resignFirstResponder];
+    //run the parse on a separate thread
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(parseThread) userInfo:nil repeats:NO];
 }
 
