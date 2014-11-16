@@ -8,11 +8,25 @@
 
 #import "PageParser.h"
 
+#import "Common.h"
+
 //<a href="/wiki/Charge-coupled_device" title="Charge-coupled device">
+
+
+#if kSCHOOLS == 1
+
+#define kHREF @"<a href="
+#define kTITLE @"title=\""
+#define kEND @"\""
+
+#else
 
 #define kHREF @"<a href=\"/wiki/"
 #define kTITLE @"title=\""
 #define kEND @"\""
+
+#endif
+
 
 @implementation PageParser
 ///pablo here
