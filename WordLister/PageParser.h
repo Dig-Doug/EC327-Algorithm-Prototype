@@ -13,7 +13,7 @@
 
 @interface PageParser : NSObject
 
-+(NSDictionary *)parseString:(NSString *)aPageString;
++(NSDictionary *)parseString:(NSString *)aPageString HREF:(NSString *)aHREF title:(NSString *)aTitle end:(NSString *)aEnd;
 
 @end
 

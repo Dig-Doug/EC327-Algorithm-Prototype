@@ -8,29 +8,12 @@
 
 #import "PageParser.h"
 
-#import "Common.h"
-
 //<a href="/wiki/Charge-coupled_device" title="Charge-coupled device">
-
-
-#if kSCHOOLS == 1
-
-#define kHREF @"<a href="
-#define kTITLE @"title=\""
-#define kEND @"\""
-
-#else
-
-#define kHREF @"<a href=\"/wiki/"
-#define kTITLE @"title=\""
-#define kEND @"\""
-
-#endif
 
 
 @implementation PageParser
 ///pablo here
-+(NSDictionary *)parseString:(NSString *)aPageString
++(NSDictionary *)parseString:(NSString *)aPageString HREF:(NSString *)aHREF title:(NSString *)aTitle end:(NSString *)aEnd
 {
     NSMutableDictionary *words = [NSMutableDictionary dictionary];
     
@@ -39,15 +22,15 @@
     
     while (!done)
     {
-        NSRange nextHREF = [aPageString rangeOfString:kHREF options:NSCaseInsensitiveSearch range:NSMakeRange(index, aPageString.length - index - 1)];
+        NSRange nextHREF = [aPageString rangeOfString:aHREF options:NSCaseInsensitiveSearch range:NSMakeRange(index, aPageString.length - index - 1)];
         
         if (nextHREF.location + nextHREF.length < aPageString.length)
         {
-            NSRange nextTitle = [aPageString rangeOfString:kTITLE options:NSCaseInsensitiveSearch range:NSMakeRange(nextHREF.location + nextHREF.length, aPageString.length - nextHREF.location - nextHREF.length)];
+            NSRange nextTitle = [aPageString rangeOfString:aTitle options:NSCaseInsensitiveSearch range:NSMakeRange(nextHREF.location + nextHREF.length, aPageString.length - nextHREF.location - nextHREF.length)];
             
             if (nextTitle.location + nextHREF.length < aPageString.length)
             {
-                NSRange nextEnd = [aPageString rangeOfString:kEND options:NSCaseInsensitiveSearch range:NSMakeRange(nextTitle.location + nextTitle.length, aPageString.length - nextTitle.location - nextTitle.length)];
+                NSRange nextEnd = [aPageString rangeOfString:aEnd options:NSCaseInsensitiveSearch range:NSMakeRange(nextTitle.location + nextTitle.length, aPageString.length - nextTitle.location - nextTitle.length)];
                 
                 if (nextEnd.location + nextEnd.length < aPageString.length)
                 {
@@ -56,7 +39,7 @@
                     
                     index = (int)(nextEnd.location + nextEnd.length);
                     
-                    NSLog(@"%@", word);
+                    //NSLog(@"%@", word);
                     
                     if ([words objectForKey:word] == nil)
                     {

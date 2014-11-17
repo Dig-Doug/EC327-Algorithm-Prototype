@@ -14,6 +14,7 @@
 @property (nonatomic, retain)IBOutlet UITextView *results;
 @property (nonatomic, retain)IBOutlet UILabel *wordCount;
 @property (nonatomic, retain)IBOutlet UIButton *parse;
+@property (nonatomic, retain)IBOutlet UISegmentedControl *webpage;
 
 -(IBAction)closeKeyboard:(id)sender;
 

@@ -10,8 +10,6 @@
 
 #import "PageParser.h"
 
-#import "Common.h"
-
 @interface ViewController ()
 
 @end
@@ -47,18 +45,31 @@
 
 -(void)parseThread
 {
-    
-#if kSCHOOLS == 1
-    NSString *capitalized = [self.url.text lowercaseString];
-    capitalized = [capitalized capitalizedString];
-    
-    NSString *lowercaseFirst = [self.url.text substringToIndex:1];
-    lowercaseFirst = [lowercaseFirst lowercaseString];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://schools-wikipedia.org/wp/%@/%@.htm", lowercaseFirst, capitalized];
-#else
-    NSString *urlString = [NSString stringWithFormat:@"http://www.wikipedia.org/wiki/%@", self.url.text];
-#endif
+    NSString *href, *title, *end, *urlString;
+    if (self.webpage.selectedSegmentIndex == 0) //wiki
+    {
+        href = @"<a href=\"/wiki/";
+        title = @"title=\"";
+        end = @"\"";
+        urlString = [NSString stringWithFormat:@"http://www.wikipedia.org/wiki/%@", self.url.text];
+    }
+    else if (self.webpage.selectedSegmentIndex == 1) //school-wiki
+    {
+        href = @"<a href=";
+        title = @"title=\"";
+        end = @"\"";
+        NSString *capitalized = [self.url.text lowercaseString];
+        capitalized = [capitalized capitalizedString];
+        
+        NSString *lowercaseFirst = [self.url.text substringToIndex:1];
+        lowercaseFirst = [lowercaseFirst lowercaseString];
+        
+        urlString = [NSString stringWithFormat:@"http://schools-wikipedia.org/wp/%@/%@.htm", lowercaseFirst, capitalized];
+    }
+    else
+    {
+        self.results.text = @"Error with segmented control";
+    }
     
     NSError *error;
     NSString *webPage = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:&error];
@@ -66,7 +77,7 @@
     if (webPage != nil)
     {
         NSLog(@"Parsing: %@", urlString);
-        NSDictionary *words = [PageParser parseString:webPage];
+        NSDictionary *words = [PageParser parseString:webPage HREF:href title:title end:end];
         
         NSMutableString *results = [NSMutableString string];
         NSArray *sorted = [[words allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];

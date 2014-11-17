@@ -43,7 +43,6 @@
 		913273031A15620800676901 /* WordListerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordListerTests.m; sourceTree = "<group>"; };
 		9132730D1A15622400676901 /* PageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageParser.m; sourceTree = "<group>"; };
 		9132730F1A15622E00676901 /* PageParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageParser.h; sourceTree = "<group>"; };
-		919D981A1A19590F00793F1E /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +86,6 @@
 			children = (
 				913272EB1A15620700676901 /* AppDelegate.h */,
 				913272EC1A15620700676901 /* AppDelegate.m */,
-				919D981A1A19590F00793F1E /* Common.h */,
 				913272EE1A15620700676901 /* ViewController.h */,
 				913272EF1A15620700676901 /* ViewController.m */,
 				9132730F1A15622E00676901 /* PageParser.h */,
